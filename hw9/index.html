@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+   <head>
+      <title></title>
+      <meta name="author" content="none">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      <style>
+         .outlined{
+         border-color: black;
+         border-width:1px;
+         border-style: solid;
+         width: 100px;
+         height: 100px;
+         }
+      </style>
+      <script>
+         $(document).ready(function() {
+             $('#squares').children().addClass('outlined');
+         
+             $("#buttonToggleColors").click(function() {
+                 $('#squares').children().each(function() {
+                     var square = $(this).css("background-color");
+                     if (!square.localeCompare("rgba(0, 0, 0, 0)")) {
+                         $(this).css("background-color", "blue");
+                         $(this).css("border-color", "blue");
+         
+                     } else {
+                         $(this).css("background-color", "transparent");
+                         $(this).css("border-color", "black");
+                     }
+                 });
+             });
+         
+             $("#buttonToggleRoundborders").click(function() {
+                 $('#squares').children().each(function() {
+                     var square = $(this).css('borderTopLeftRadius');
+                     if (!square.localeCompare("0px")) {
+                         $(this).css('border-radius', '25px');
+                     } else {
+                         $(this).css('border-radius', '0px');
+                     }
+                 });
+             });
+         
+             $("#buttonAddBox").click(function() {
+                 var count = 1;
+                 $('#squares').children().each(function() {
+                     count++;
+                 });
+                 $('#squares').append("<div id=\"square" + count + "\" class=\"square outlined\"> </div>");
+             });
+         
+             $("#buttonRemoveBox").click(function() {
+                 var id = prompt("Input id of box to remove");
+                 var bool = true;
+                 $('#squares').children().each(function() {
+                     console.log($(this).attr('id'));
+                     if (!$(this).attr('id').localeCompare(id)) {
+                         $(this).remove();
+                         bool = false;
+                         return false;
+                     }
+                 });
+                 if (bool) {
+                     alert("Id not found!");
+                 }
+             });
+         });
+      </script>
+   </head>
+   <body>
+      <div class="container" id="main">
+         <div id="squares">
+            <!-- Step 1: Add the 'outlined' class to each of the squares using JQuery -->
+            <div id="square1" class="square"></div>
+            <div id="square2" class="square"></div>
+            <div id="square3" class="square"></div>
+         </div>
+         <div id="Toggle">
+            <h2>Toggles</h2>
+            <button id="buttonToggleColors" class="btn btn-primary">Toggle Colors</button>
+            <button id="buttonToggleRoundborders" class="btn btn-secondary">Toggle Rounded Borders</button>
+            <button id="buttonAddBox" class="btn btn-success">Add a New Box</button>
+            <button id="buttonRemoveBox" class="btn btn-warning">Remove a Box</button>
+         </div>
+         <div id="info">
+            <h2>Descriptions:</h2>
+            <ul>
+               <li><b>#1: Update all square divs</b> to include the outline class using JQuery (at ready time: do NOT HARD CODE IT)</li>
+               <li><b>#2: Toggle Colors</b>: Toggles the color on and off for each square using CSS classes (Button).</li>
+               <li><b>#3: Toggle Rounded Borders</b>: Toggles the rounded-borders on and off for each square using CSS attributes (Button).</li>
+               <li><b>#4: Add a New Box</b>: Adds one new square to the container (Button).</li>
+               <li><b>#5: Remove a Box</b>: Asks for ID and removes it from the DOM - notify if not found (Button).</li>
+            </ul>
+         </div>
+      </div>
+   </body>
+</html>

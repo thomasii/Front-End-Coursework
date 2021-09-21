@@ -1,0 +1,35 @@
+<!-- Thomas Wright, CSE383, 3/22/2021 Homework 8 -->
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+      <meta charset="UTF-8">
+      <title>HW 5</title>
+   </head>
+   <body>
+      <header>
+         <h1> Thomas Wright </h1>
+      </header>
+      <form>
+         <div class="input-group mb-3">
+            <span class="input-group-text" id="input">Enter Number of random numbers to create</span>
+            <input type="text" class="form-control" id="number" name="input" placeholder="# of random seriers of numbers to generate" aria-label=" #s" aria-describedby="uid" required="">
+         </div>
+         <button type="button" onclick="randomSeries()" class="btn btn-primary">Submit</button>
+      </form>
+      <script>
+         function randomSeries() {
+             var iterations = parseInt(document.getElementById("number").value);
+             for (i = 0; i < iterations; i++) {
+         
+                 var length = Math.floor(Math.random() * (20 - 3 + 1) + 3);
+                 var number = "";
+                 for (j = 0; j < length; j++) {
+                     number += Math.floor(Math.random() * 9).toString();
+         
+                 }
+                 document.write((i + 1) + ":" + number + " " + length + "<br>");
+             }
+         }
+      </script>
+   </body>

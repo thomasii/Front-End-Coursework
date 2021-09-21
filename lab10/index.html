@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Cse383 HW 9</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="info.js?rev=1"></script>
+
+    <style>
+
+#MainPage {
+  width: 80%;
+  margin: auto;
+}
+
+h1 {
+  width: 200px;
+  margin: auto;
+}
+h2 {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.box{
+  border: thin solid black;
+}
+
+#log {
+  width: 500px;
+  margin: auto;
+  text-align: center;
+}
+.loadTable {
+  width: 90%;
+  margin: auto;
+}
+
+#time {
+  width: 50%;
+    margin: auto;
+      text-align:center;
+}
+    </style>
+
+  </head>
+
+  <body>
+    <div id='MainPage'>
+      <h1>CECLNX01 information</h1>
+      <div class="row justify-content-center">
+        <div class="col-sm-4 box"><h2>Users #<span id="usersRun"></span></h2>
+          <table class='table'>
+            <thead><tr><th>User</th><th>IP</th></tr></thead>
+            <tbody id='users'>
+            </tbody>
+          </table>
+        </div>
+	<div class="col-sm-4 box"><h2>Load #<span id="loadRun"></span></h2>
+          <table class='table loadTable'>
+
+            <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+            <tbody>
+              <tr><td>One Min Avg</td><td id='onemin'>&nbsp;</td></tr>
+              <tr><td>Five Min Avg</td><td id='fivemin'>&nbsp;</td></tr>
+              <tr><td>15 Min Avg</td><td id='fifteenmin'>&nbsp;</td></tr>
+              <tr><td>Num Proc Running</td><td id='numRunning'>&nbsp;</td></tr>
+              <tr><td>Ttl Processes</td><td id='ttlProc'>&nbsp;</td></tr>
+            </tbody>
+          </table>
+
+        </div>
+	<div class="col-sm-4 box"><h2>Network #<span id="networkRun"></span></h2>
+          <table class='table loadTable'>
+            <thead><tr><th>Direction</th><th>Bytes</th><th>Bytes/sec</th></tr></thead>
+            <tbody>
+              <tr><td>TX</td><td id='txbytes'></td><td id='txavg'></td></tr>
+              <tr><td>RX</td><td id='rxbytes'></td><td id='rxavg'></td></tr>
+            </tbody>
+            </table>
+
+
+        </div>
+      </div>
+      <div id='time'></div>
+        <h2>log  #<span id="logRun"></span></h2>
+        <ul></ul>
+      <div id="log">
+      </div>
+    </div>
+
+ 
+
+
+  </body>
+</html>
+
+

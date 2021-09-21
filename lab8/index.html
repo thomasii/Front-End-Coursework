@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!--
+   CSE 383
+   lab8   -> use HTML to validate input
+   -->
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <title>CSE 383</title>
+   </head>
+   <body>
+      <form target="print_popup" onsubmit="window.open('about:blank','print_popup','width=1000,height=800');">
+         <label for="Name"> Enter Name </label>
+         <input id="Name" name="Name" id="Name" minlength="2" required>
+         <br>
+         <label for="Uid"> Enter UId </label>
+         <input id="Uid" name="Uid" id="Uid" required pattern="^(\p{L}\p{M}*)+$" required>
+         <br>
+         <label for="MobilDevices"> Enter # of MobilDevices </label>
+         <input id="MobilDevices" name="MobilDevices" id="MobilDevices" required pattern="[1-9]|10" required>
+         <br>
+         <label for="quoteCite"> Enter a website</label>
+         <input id="quoteCite" name="quoteCite" id="quoteCite" required pattern="^[\w.,-'"/:]*$" required>
+         <br>
+         <input type="submit" value="Submit">
+      </form>
+   </body>
+</html>

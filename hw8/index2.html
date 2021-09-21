@@ -1,0 +1,39 @@
+<!-- Thomas Wright, CSE383, 3/22/2021 Homework 8 -->
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+   </head>
+   <body>
+      <body onload="draw();">
+         <script>
+            function draw() {
+                var canvas = document.createElement("canvas");
+                canvas.id = "newCanvas";
+                canvas.height = window.innerHeight;
+                canvas.width = window.innerWidth;
+                document.body.appendChild(canvas);
+            
+                var canvas = document.getElementById('newCanvas');
+                var drawCanvas = canvas.getContext('2d');
+            
+                for (i = 0; i < 20; i++) {
+                    var drawCanvas = canvas.getContext('2d');
+            
+                    var originx = Math.floor(Math.random() * window.innerWidth);
+                    var originy = Math.floor(Math.random() * window.innerHeight);
+                    var length = Math.floor(Math.random() * 40) + 10;
+                    var width = Math.floor(Math.random() * 40) + 10;
+                    drawCanvas.beginPath();
+                    drawCanvas.moveTo(originx, originy);
+                    drawCanvas.lineTo(originx + width, originy);
+                    drawCanvas.lineTo(originx, originy - length);
+                    var randomColor = Math.floor(Math.random() * 16777215).toString(16);
+                    drawCanvas.fillStyle = "#" + randomColor;
+                    drawCanvas.fill();
+                    drawCanvas.closePath();
+                }
+            }
+         </script>
+   </body>
+</html>

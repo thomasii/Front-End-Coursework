@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--
+   CSE 383
+   lab8   -> use JavaScript to validate inputs
+   -->
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <title>CSE 383</title>
+   </head>
+   <body>
+      <form target="print_popup" onsubmit="window.open('about:blank','print_popup','width=1000,height=800');">
+         <label for="Name"> Enter Name </label>
+         <input type="text" id="Name" name="Name" required>
+         <br>
+         <button>Submit</button>
+      </form>
+      <script>
+         const name = document.getElementById("Name");
+         const name = document.getElementById("Name");
+         const regex = new RegExp("\\w");
+         name.addEventListener("submit", function (event) {
+           if (!name.validity.valid) {
+             name.setCustomValidity("I am expecting an e-mail address!");
+           } else {
+             name.setCustomValidity("");
+           }
+         });
+      </script>
+   </body>
+</html>

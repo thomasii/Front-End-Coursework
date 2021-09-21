@@ -1,0 +1,102 @@
+<!-- Thomas Wright, CSE383, 3/22/2021 Homework 8 -->
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+      <meta charset="UTF-8">
+      <title>HW 5</title>
+   </head>
+   <body onload="moveDivs()">
+      <header>
+         <h1> Thomas Wright </h1>
+      </header>
+      <div id = "div1">
+         <h1> DIV1 </h1>
+         <p id = "p1"> </p>
+      </div>
+      <div id = "div2">
+         <h1> DIV2 </h1>
+         <p id = "p2"> </p>
+      </div>
+      <div id = "div3">
+         <h1> DIV3 </h1>
+         <p id = "p3"> </p>
+      </div>
+      <script>
+         function moveDivs() {
+             var d1 = document.getElementById('div1');
+             d1.style.position = "absolute";
+             var d2 = document.getElementById('div2');
+             d2.style.position = "absolute";
+             var d3 = document.getElementById('div3');
+             d3.style.position = "absolute";
+         
+             var d1x = Math.floor(Math.random() * window.innerWidth);
+             var d1y = Math.floor(Math.random() * window.innerHeight);
+             var d2x = Math.floor(Math.random() * window.innerWidth);
+             var d2y = Math.floor(Math.random() * window.innerHeight);
+             var d3x = Math.floor(Math.random() * window.innerWidth);
+             var d3y = Math.floor(Math.random() * window.innerHeight);
+         
+             d1.style.left = d1x + 'px';
+             d1.style.top = d1y + 'px';
+             d2.style.left = d2x + 'px';
+             d2.style.top = d2y + 'px';
+         
+             d3.style.left = d3x + 'px';
+             d3.style.top = d3y + 'px';
+         
+             var iterations = parseInt(1);
+         
+             var d1xSpaceInc = (window.innerWidth - d1x) / 500;
+             var d1ySpaceInc = (window.innerHeight - d1y) / 500;
+             var d2xSpaceInc = (window.innerWidth - d2x) / 500;
+             var d2ySpaceInc = (window.innerHeight - d2y) / 500;
+             var d3xSpaceInc = (window.innerWidth - d3x) / 500;
+             var d3ySpaceInc = (window.innerHeight - d3y) / 500;
+             movediv1(d1xSpaceInc, d1ySpaceInc, iterations)
+             movediv2(d2xSpaceInc, d2ySpaceInc, iterations)
+             movediv3(d3xSpaceInc, d3ySpaceInc, iterations)
+         }
+         
+         function movediv1(d1xSpaceInc, d1ySpaceInc, iterations) {
+             iterations++
+             var d1 = document.getElementById('div1');
+             var p1 = document.getElementById('p1');
+             p1.innerHTML = parseInt(iterations);
+             d1.style.left = d1.offsetLeft + d1xSpaceInc + 'px';
+             d1.style.top = d1.offsetTop + d1ySpaceInc + 'px';
+             setTimeout(function() {
+                 movediv1(d1xSpaceInc, d1ySpaceInc, iterations)
+             }, 100);
+         
+         }
+         
+         function movediv2(d2xSpaceInc, d2ySpaceInc, iterations) {
+             iterations++
+             var p2 = document.getElementById('p2');
+             p2.innerHTML = parseInt(iterations);
+             var d2 = document.getElementById('div2');
+             d2.style.left = d2.offsetLeft + d2xSpaceInc + 'px';
+             d2.style.top = d2.offsetTop + d2ySpaceInc + 'px';
+             setTimeout(function() {
+                 movediv2(d2xSpaceInc, d2ySpaceInc, iterations)
+             }, 100);
+         
+         }
+         
+         function movediv3(d3xSpaceInc, d3ySpaceInc, iterations) {
+             iterations++
+             var p3 = document.getElementById('p3');
+             p3.innerHTML = parseInt(iterations);
+             var d3 = document.getElementById('div3');
+             d3.style.left = d3.offsetLeft + d3xSpaceInc + 'px';
+             d3.style.top = d3.offsetTop + d3ySpaceInc + 'px';
+             setTimeout(function() {
+                 movediv3(d3xSpaceInc, d3ySpaceInc, iterations)
+             }, 100);
+         
+         }
+      </script>
+   </body>
+</html>
